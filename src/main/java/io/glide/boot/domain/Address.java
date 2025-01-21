@@ -9,7 +9,7 @@ public class Address {
 
   private String streetNumber;
 
-  String streetName;
+  private String streetName;
 
   @NotEmpty
   @Size(max = 40)

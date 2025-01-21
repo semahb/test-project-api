@@ -1,0 +1,14 @@
+io\glide\boot\api\dto\UserRegistrationDto.class
+io\glide\boot\domain\User.class
+io\glide\boot\api\dto\AddressDto.class
+io\glide\boot\converter\UserConverter.class
+io\glide\boot\api\UserApi.class
+io\glide\boot\domain\Department.class
+io\glide\service\impl\UserServiceImpl.class
+io\glide\service\UserService.class
+io\glide\boot\domain\Address.class
+io\glide\boot\repository\UserRepository.class
+io\glide\boot\api\dto\UserDto.class
+io\glide\boot\Application.class
+io\glide\boot\api\dto\UserDto$UserInfos.class
+io\glide\boot\api\impl\UserApiImpl.class

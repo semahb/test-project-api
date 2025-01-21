@@ -9,9 +9,15 @@ import io.glide.boot.repository.UserRepository;
 import io.glide.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
 import java.util.Optional;
@@ -22,7 +28,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.*;
 import static org.mockito.MockitoAnnotations.openMocks;
 
-class UserServiceImplTest {
+@SpringBootTest
+public class UserServiceImplTest {
 
   @Mock private UserRepository userRepository;
 
@@ -93,7 +100,6 @@ class UserServiceImplTest {
     user.setLastName("Emilie");
     user.setDepartment(department);
     user.setAddresses(singleton(address));
-
     when(userRepository.findById(user.getId())).thenReturn(Optional.of(user));
 
     // When && Then
