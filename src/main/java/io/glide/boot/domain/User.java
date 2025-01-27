@@ -1,12 +1,8 @@
 package io.glide.boot.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import javax.persistence.*;
-import java.util.Objects;
 import java.util.Set;
 
-@Entity
 public class User {
 
   @Id private Long id;
@@ -15,12 +11,8 @@ public class User {
 
   private String lastName;
 
-  @ManyToOne()
-  @JsonIgnoreProperties(value = "users" )
   private Department department;
 
-  @Embedded
-  @ElementCollection()
   private Set<Address> addresses;
 
   public Long getId() {
@@ -61,18 +53,5 @@ public class User {
 
   public void setAddresses(final Set<Address> addresses) {
     this.addresses = addresses;
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    User user = (User) o;
-    return Objects.equals(id, user.id);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(id);
   }
 }

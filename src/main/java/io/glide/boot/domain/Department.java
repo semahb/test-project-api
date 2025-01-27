@@ -2,7 +2,6 @@ package io.glide.boot.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import java.util.Set;
 
 @Entity
@@ -12,7 +11,6 @@ public class Department {
 
   private String name;
 
-  @OneToMany(mappedBy = "department")
   private Set<User> users;
 
   public Long getId() {

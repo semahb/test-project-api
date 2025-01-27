@@ -2,7 +2,9 @@ package io.glide.boot.api;
 
 import io.glide.boot.api.dto.UserDto;
 import io.glide.boot.api.dto.UserRegistrationDto;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import reactor.core.publisher.Mono;
 
 import javax.validation.Valid;
@@ -20,7 +22,7 @@ public interface UserApi {
    * @return registered user infos.
    */
   @PostMapping("/users/register")
-  UserDto register(@RequestBody @NotNull @Valid UserRegistrationDto userRegistrationDto);
+  UserDto register(@NotNull @Valid UserRegistrationDto userRegistrationDto);
 
   /**
    * Get user details by id.
@@ -28,6 +30,6 @@ public interface UserApi {
    * @param id user id
    * @return user infos
    */
-  @GetMapping("/users/{userId}")
-  Mono<UserDto> findUserById(@PathVariable("userId") long id);
+  @GetMapping("/users/${userId}")
+  Mono<UserDto> findUserById(long id);
 }
